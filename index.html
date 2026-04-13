@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" class="scroll-smooth"><head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Chirag — Portfolio &amp; Contact</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -277,9 +277,9 @@ section, header, main, footer, .section {
   <a href="#main" class="absolute left-2 top-2 z-50 -translate-y-full rounded-lg bg-indigo-700 px-4 py-2 text-xs font-bold text-white transition-colors focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-600 dark:focus:ring-indigo-400" tabindex="0">Skip to main content</a>
   
   <header class="sticky top-0 z-40 border-b border-white/20 bg-white/70 backdrop-blur-xl dark:border-slate-800/60 dark:bg-slate-950/70">
-    <nav>
+    <nav aria-label="Primary navigation">
       <div class="mx-auto flex w-full max-w-[1600px] items-center justify-between px-4 py-4 sm:px-6">
-        <a href="#hero" class="flex items-center gap-3 transition hover:opacity-90" aria-label="Chirag — Home">
+        <a href="#hero" class="flex items-center gap-3 transition hover:opacity-90" aria-label="Chirag — Home" tabindex="0">
           <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 text-white shadow-xl">
             <span class="text-sm font-bold">C</span>
           </div>
@@ -305,13 +305,13 @@ section, header, main, footer, .section {
             <svg id="icon-sun-mobile" class="h-5 w-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             <svg id="icon-moon-mobile" class="h-5 w-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
           </button>
-          <button type="button" id="mobile-menu-btn" class="rounded-xl p-2 transition hover:bg-slate-200/50 dark:hover:bg-slate-800/60 md:hidden" aria-label="Toggle menu">
+          <button type="button" id="mobile-menu-btn" class="rounded-xl p-2 transition hover:bg-slate-200/50 dark:hover:bg-slate-800/60 md:hidden" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
             <svg id="icon-menu" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             <svg id="icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
       </div>
-      <div id="mobile-menu" class="hidden border-t border-white/20 bg-white/90 backdrop-blur-xl dark:border-slate-800/60 dark:bg-slate-950/90 md:hidden">
+      <div id="mobile-menu" class="hidden border-t border-white/20 bg-white/90 backdrop-blur-xl dark:border-slate-800/60 dark:bg-slate-950/90 md:hidden" aria-label="Mobile navigation menu">
         <div class="mx-auto flex max-w-[1600px] flex-col gap-2 px-4 py-3 sm:px-6">
           <a href="#features" class="mobile-link rounded-lg px-2 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800">Features</a>
           <a href="#how-it-works" class="mobile-link rounded-lg px-2 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800">How it Works</a>
@@ -322,7 +322,7 @@ section, header, main, footer, .section {
           <a href="about.html" class="mobile-link rounded-lg px-2 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800" aria-label="About">About</a>
         </div>
       </div>
-    </nav>
+    <button id="mobile-menu-close" aria-label="Close menu" class="sr-only">Close menu</button></nav>
   </header>
 
   <main id="main">
@@ -740,4 +740,4 @@ section, header, main, footer, .section {
         es.onmessage = () => location.reload();
         </script>
 
-</body></html>
+<style>@media (prefers-reduced-motion: reduce) { * { animation-duration: 0s !important; transition-duration: 0s !important; } } @media (max-width: 640px) { .container { padding-left: 1rem; padding-right: 1rem; } } @media (min-width: 641px) and (max-width: 767px) { .grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); } } @media (min-width: 768px) { .grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); } } @media (min-width: 1024px) { .grid { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); } } img, .responsive-img { max-width: 100%; height: auto; display: block; } a, button, input, select, textarea, summary { min-height: 2.5rem; min-width: 2.5rem; } a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible { outline-color: var(--color-primary); outline-offset: 3px; outline-style: solid; outline-width: 3px; } </style></body></html>
