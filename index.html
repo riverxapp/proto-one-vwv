@@ -16,7 +16,279 @@
       document.documentElement.classList.add(theme);
     })();
   </script>
-<meta name="description" content="Portfolio and contact hub for Chirag. Selected work, services, and ways to get in touch."><meta property="og:title" content="Chirag — Portfolio &amp; Contact"><meta property="og:description" content="Portfolio and contact hub for Chirag. Selected work, services, and ways to get in touch."><meta name="twitter:card" content="summary"></head>
+<meta name="description" content="Portfolio and contact hub for Chirag. Selected work, services, and ways to get in touch."><meta property="og:title" content="Chirag — Portfolio &amp; Contact"><meta property="og:description" content="Portfolio and contact hub for Chirag. Selected work, services, and ways to get in touch."><meta name="twitter:card" content="summary"><style>
+/* Design System Variables & Theming */
+:root {
+  /* Colors */
+  --color-bg: #f3f6fd;
+  --color-surface: #fff;
+  --color-surface-alt: #f8fafc;
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+  --color-primary: #6366f1;
+  --color-primary-contrast: #fff;
+  --color-accent: #06b6d4;
+  --color-border: #e2e8f0;
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius: 0.75rem;
+  --radius-lg: 1.5rem;
+  /* Shadow */
+  --shadow-xs: 0 1px 2px 0 rgb(16 30 54 / 0.06);
+  --shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 8px 32px -4px rgb(75 85 99 / 0.10);
+  /* Transitions */
+  --transition-fast: 120ms cubic-bezier(.4,0,.2,1);
+  --transition: 200ms cubic-bezier(.4,0,.2,1);
+  --transition-slow: 350ms cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0a1120;
+    --color-surface: #0f172a;
+    --color-surface-alt: #1e1b4b;
+    --color-text: #f8fafc;
+    --color-muted: #cbd5e1;
+    --color-primary: #818cf8;
+    --color-primary-contrast: #1e293b;
+    --color-accent: #7dd3fc;
+    --color-border: #334155;
+  }
+}
+
+/* Typography & Rhythm */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'sans-serif';
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.012em;
+  -webkit-font-smoothing: antialiased;
+}
+h1 {
+  font-size: clamp(2.5rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.10;
+  letter-spacing: -0.01em;
+}
+h3 {
+  font-size: clamp(1.25rem, 1.85vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.21;
+}
+p, ul, li {
+  max-width: 64ch;
+  font-size: 1rem;
+  color: var(--color-muted);
+}
+p, ul { margin-bottom: var(--space-4); }
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+a:hover, a:focus {
+  color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  outline: none;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+@media (max-width: 640px) {
+  .container {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+}
+.section {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+.stack > * + * {
+  margin-top: var(--space-4);
+}
+.grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+/* Components */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-6);
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: 
+    background var(--transition), 
+    color var(--transition),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  color: var(--color-primary-contrast);
+  box-shadow: var(--shadow-lg);
+}
+.btn-primary:hover, .btn-primary:focus {
+  transform: scale(1.045);
+  box-shadow: 0 6px 24px -6px var(--color-primary);
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+.btn-ghost:hover,
+.btn-ghost:focus {
+  background: var(--color-surface);
+}
+.btn-ghost:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition), border-color var(--transition-fast), transform var(--transition-fast);
+  padding: var(--space-5);
+}
+.card:hover, .card:focus-within {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+  transform: translateY(-2px) scale(1.012);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--color-surface-alt);
+  color: var(--color-primary);
+  font-size: 0.85em;
+  font-weight: 500;
+  padding: 0.3em 0.75em;
+  border-radius: var(--radius-sm);
+}
+
+.nav {
+  background: var(--color-surface);
+  box-shadow: 0 4px 12px -2px rgb(75 85 99 / 0.08);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0; z-index: 100;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+}
+.nav a, .nav .btn {
+  font-size: 1rem;
+  color: var(--color-text);
+  background: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-4);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+.nav a:hover, .nav a:focus {
+  color: var(--color-primary);
+  background: var(--color-surface-alt);
+  outline: none;
+}
+
+/* Focus States for Accessibility */
+:focus-visible {
+  outline: 2.5px solid var(--color-primary);
+  outline-offset: 3px;
+  transition: outline-color var(--transition-fast);
+}
+
+/* States & Transition Respect Reduced Motion */
+* {
+  transition-property: background, color, border-color, box-shadow, transform;
+  transition-duration: var(--transition);
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Shadows & Depth */
+.shadow-xs { box-shadow: var(--shadow-xs) !important; }
+.shadow { box-shadow: var(--shadow) !important; }
+.shadow-lg { box-shadow: var(--shadow-lg) !important; }
+
+/* Utilities */
+.rounded { border-radius: var(--radius) !important; }
+.rounded-lg { border-radius: var(--radius-lg) !important; }
+.rounded-full { border-radius: 9999px !important; }
+
+/* Responsive spacing helpers (for opt-in use) */
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: var(--space-1) !important; }
+.mb-2 { margin-bottom: var(--space-2) !important; }
+.mb-3 { margin-bottom: var(--space-3) !important; }
+.mb-4 { margin-bottom: var(--space-4) !important; }
+.mb-5 { margin-bottom: var(--space-5) !important; }
+.mb-6 { margin-bottom: var(--space-6) !important; }
+
+/* Example: adjust skip-to-content for visibility on focus */
+.skip-to-main:focus {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  z-index: 110;
+  transform: translateY(0);
+}
+</style></head>
 <body class="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-50 text-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-slate-100">
   <a href="#hero" class="absolute left-2 top-2 z-50 -translate-y-full rounded-lg bg-indigo-700 px-4 py-2 text-xs font-bold text-white transition-colors focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-600 dark:focus:ring-indigo-400" tabindex="0">Skip to main content</a>
   
