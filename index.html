@@ -16,7 +16,65 @@
       document.documentElement.classList.add(theme);
     })();
   </script>
-<meta name="description" content="Portfolio and contact hub for Chirag. Selected work, services, and ways to get in touch."><meta property="og:title" content="Chirag — Portfolio &amp; Contact"><meta property="og:description" content="Portfolio and contact hub for Chirag. Selected work, services, and ways to get in touch."><meta name="twitter:card" content="summary"><style>.btn{display:inline-block;padding:0.75rem 1rem;font-weight:600;border-radius:var(--radius-md);border:1px solid transparent;background:var(--color-primary);color:var(--color-primary-contrast);box-shadow:var(--shadow-xs);transition:transform .12s ease,box-shadow .12s ease,background-color .12s ease,border-color .12s ease;border-color:transparent;}.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow);}.btn:focus-visible{outline:2px solid color-mix(in srgb,var(--color-primary) 60%,white);outline-offset:2px;}.btn-outline{background:transparent;color:var(--color-primary);border-color:var(--color-border);}.btn-outline:hover{background:color-mix(in srgb,var(--color-primary) 8%,white);}.btn-ghost{background:transparent;color:var(--color-text);}.a,a:hover,a:focus{transition:color var(--transition-fast), text-decoration-color var(--transition-fast);text-underline-offset:3px;}a:hover,a:focus{color:color-mix(in srgb,var(--color-text) 80%,var(--color-primary));text-decoration-color:var(--color-text);}.card,.feature,.tile,.panel{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;box-shadow:var(--shadow-xs);transition:box-shadow .12s ease, transform .12s ease;}.card:hover,.feature:hover,.tile:hover,.panel:hover{box-shadow:var(--shadow);transform:translateY(-2px);}.card:focus-within,.feature:focus-within,.tile:focus-within,.panel:focus-within{box-shadow:var(--shadow);transform:translateY(-2px);outline:none;}.input, input, select, textarea{padding:0.5rem 0.75rem;border:1px solid var(--color-border);border-radius:var(--radius-md);transition:box-shadow .12s ease,border-color .12s ease;}.input:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px;}.actions{display:flex;flex-wrap:wrap;gap:0.75rem 1rem;}</style></head><body class="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-50 text-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-slate-100">/* Design System Variables &amp; Theming */
+<meta name="description" content="Portfolio and contact hub for Chirag. Selected work, services, and ways to get in touch."><meta property="og:title" content="Chirag — Portfolio &amp; Contact"><meta property="og:description" content="Portfolio and contact hub for Chirag. Selected work, services, and ways to get in touch."><meta name="twitter:card" content="summary">.btn{display:inline-block;padding:0.75rem 1rem;font-weight:600;border-radius:var(--radius-md);border:1px solid transparent;background:var(--color-primary);color:var(--color-primary-contrast);box-shadow:var(--shadow-xs);transition:transform .12s ease,box-shadow .12s ease,background-color .12s ease,border-color .12s ease;border-color:transparent;}.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow);}.btn:focus-visible{outline:2px solid color-mix(in srgb,var(--color-primary) 60%,white);outline-offset:2px;}.btn-outline{background:transparent;color:var(--color-primary);border-color:var(--color-border);}.btn-outline:hover{background:color-mix(in srgb,var(--color-primary) 8%,white);}.btn-ghost{background:transparent;color:var(--color-text);}.a,a:hover,a:focus{transition:color var(--transition-fast), text-decoration-color var(--transition-fast);text-underline-offset:3px;}a:hover,a:focus{color:color-mix(in srgb,var(--color-text) 80%,var(--color-primary));text-decoration-color:var(--color-text);}.card,.feature,.tile,.panel{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;box-shadow:var(--shadow-xs);transition:box-shadow .12s ease, transform .12s ease;}.card:hover,.feature:hover,.tile:hover,.panel:hover{box-shadow:var(--shadow);transform:translateY(-2px);}.card:focus-within,.feature:focus-within,.tile:focus-within,.panel:focus-within{box-shadow:var(--shadow);transform:translateY(-2px);outline:none;}.input, input, select, textarea{padding:0.5rem 0.75rem;border:1px solid var(--color-border);border-radius:var(--radius-md);transition:box-shadow .12s ease,border-color .12s ease;}.input:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px;}.actions{display:flex;flex-wrap:wrap;gap:0.75rem 1rem;}/* ========== Custom CSS for Responsiveness &amp; Accessibility ========== */
+/* Images responsive */
+img, .responsive-img {max-width:100%;height:auto;}
+
+/* Responsive .container padding */
+.container {max-width:1300px;margin-left:auto;margin-right:auto;padding-left:var(--space-4);padding-right:var(--space-4);}
+@media (max-width: 640px) {
+  .container {padding-left:1.25rem;padding-right:1.25rem;}
+}
+
+/* Section paddings scale down already via .section and breakpoints */
+
+/* Header/Nav: Flex wrap/stack on small screens */
+header &gt; nav &gt; div.flex {flex-wrap:wrap;}
+@media (max-width: 900px) {
+  header &gt; nav &gt; div.flex {flex-wrap:wrap;flex-direction:column;align-items:flex-start;gap:0.5rem 1rem;}
+  header &gt; nav &gt; div.md\:flex {display:flex !important;flex-direction:column;gap:0.25rem 0;}
+  header &gt; nav a, header &gt; nav button {width:100%;display:block;text-align:left;padding-top:0.6em;padding-bottom:0.6em;}
+}
+
+/* Clamp headings */
+h1 {font-size:clamp(2rem,6vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-0.01em;}
+h2 {font-size:clamp(1.3rem,4vw,2rem);font-weight:700;line-height:1.12;}
+h3 {font-size:clamp(1.07rem,2.5vw,1.25rem);font-weight:600;line-height:1.19;}
+
+/* Muted text and borders for contrast/readability */
+:root {--color-muted: #6b7280;--color-border: #e5e7eb;}
+
+/* Button primary: text color sufficient contrast via --primary-contrast */
+.btn-primary {color:var(--color-primary-contrast);background:linear-gradient(90deg,var(--color-primary),var(--color-accent));}
+.btn-primary:focus-visible {outline:2.5px solid var(--color-primary);outline-offset:2px;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--color-primary);}
+
+/* Focus states for all actionable elements */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible {
+  outline:2.5px solid var(--color-accent, #4637d9);outline-offset:2px;
+  box-shadow:0 0 0 3px #fff,0 0 0 6px var(--color-accent, #4637d9);
+}
+a:focus:not(:focus-visible),button:focus:not(:focus-visible),input:focus:not(:focus-visible),select:focus:not(:focus-visible),textarea:focus:not(:focus-visible){outline:none;box-shadow:none;}
+
+/* Prefers reduced motion disables transitions */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Ensure main is present (already used), semantics checked */
+
+/* LANDMARK spacing: consistent via existing .section &amp; breakpoints */
+
+/* Utility class for muted text if used outside p/ul/li */
+.muted {color:#6b7280;}
+
+/* Ensure nav links are readable and wrap on small screens */
+nav a {white-space:normal;word-break:break-word;}
+
+/********* End custom accessibility/responsive tweaks *********/</head><body class="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-50 text-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-slate-100">/* Design System Variables &amp; Theming */
 :root {
   /* Colors */
   --color-bg: #f3f6fd;
